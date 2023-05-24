@@ -1,4 +1,4 @@
-# jnsgruk's nixos config
+# tim's nixos config
 
 This repository contains a [Nix Flake](https://nixos.wiki/wiki/Flakes) for configuring my machines.
 
@@ -7,10 +7,7 @@ The machines configured thus far are:
 | Hostname |          Model          |   OS   |  Role   | Desktop  |
 | :------: | :---------------------: | :----: | :-----: | :------: |
 |  `dev`   |     [Multipass] VM      | Ubuntu | Server  |    -     |
-| `freyja` |   Lenovo Thinkpad Z13   | NixOS  | Laptop  | Hyprland |
-| `hugin`  | Lenovo Thinkcentre M93p | NixOS  | Server  |    -     |
-|  `loki`  |   Ryzen 3900X Custom    | NixOS  | Desktop | Hyprland |
-|  `thor`  |     Intel NUC6i7KYK     | NixOS  | Server  |    -     |
+| `earth` |   Lenovo Thinkpad Z16   | NixOS  | Laptop  | Hyprland |
 
 ## Structure
 

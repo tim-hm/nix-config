@@ -25,7 +25,7 @@
   programs = {
     _1password-gui = {
       enable = true;
-      polkitPolicyOwners = [ "jon" ];
+      polkitPolicyOwners = [ "tim" ];
     };
 
     dconf.enable = true;

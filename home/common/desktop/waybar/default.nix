@@ -2,7 +2,7 @@
 let
   # If this is a laptop, then include network/battery controls
   modules =
-    if hostname == "freyja" then [
+    if hostname == "earth" then [
       "tray"
       "network"
       "battery"

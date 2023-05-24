@@ -19,16 +19,12 @@
 
   home.packages = with pkgs; [
     catppuccin-gtk
-    cider
     desktop-file-utils
-    ght
     google-chrome
-    imlib2Full
     libnotify
     obsidian
     pamixer
     pavucontrol
-    rambox
     signal-desktop
     xdg-utils
     xorg.xlsclients

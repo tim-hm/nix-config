@@ -12,13 +12,8 @@
     git = {
       enable = true;
 
-      userEmail = "jon@sgrs.uk";
-      userName = "Jon Seager";
-
-      signing = {
-        key = "83B266DCF3E3F2B41264A9F5F4A9184451BD9A74";
-        signByDefault = true;
-      };
+      userEmail = "tim@holmie.xyz";
+      userName = "Tim Holmes-Mitra";
 
       aliases = {
         lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";

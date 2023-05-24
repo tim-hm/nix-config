@@ -11,7 +11,7 @@ config:
   cloud-init.user-data: |
     #cloud-config
     users:
-      - name: jon
+      - name: tim
         shell: /bin/bash
         groups:
           - lxd
@@ -46,26 +46,26 @@ config:
 
     runcmd:
       # Make sure that tox is installed from PyPi
-      - su jon -c "pip install tox"
+      - su tim -c "pip install tox"
       
       # Setup microk8s to be able to run a juju controller
       - microk8s enable hostpath-storage dns
-      - usermod -aG snap_microk8s jon
+      - usermod -aG snap_microk8s tim
       
       # Export a kubeconfig from MicroK8s for other tools
-      - su jon -c "mkdir -p /home/jon/.kube"
-      - su jon -c "microk8s config > /home/jon/.kube/config"
+      - su tim -c "mkdir -p /home/tim/.kube"
+      - su tim -c "microk8s config > /home/tim/.kube/config"
       
       # Setup LXD
       - lxd init --auto
       
       # Pre-populate juju directory
-      - su jon -c "mkdir -p /home/jon/.local/share/juju"
-      - su jon -c "mkdir -p /home/jon/.ssh"
+      - su tim -c "mkdir -p /home/tim/.local/share/juju"
+      - su tim -c "mkdir -p /home/tim/.ssh"
       
       # Setup shell configs etc.
-      - su jon -c "wget https://jnsgr.uk/provision -O /tmp/provision"
-      - su jon -c "bash /tmp/provision"
+      - su tim -c "wget https://jnsgr.uk/provision -O /tmp/provision"
+      - su tim -c "bash /tmp/provision"
 description: "Charm development container profile"
 devices:
   eth0:

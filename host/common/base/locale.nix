@@ -2,8 +2,11 @@
   time.timeZone = "Europe/London";
 
   console.keyMap = "uk";
-  services.xserver.layout = "gb";
+  services.xserver = {
+    layout = "gb";
+    xkbOptions = "caps:escape";
 
+  };
   i18n = {
     defaultLocale = "en_GB.utf8";
     extraLocaleSettings = {

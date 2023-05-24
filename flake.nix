@@ -14,10 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
     vscode-server = {
       url = "github:msteen/nixos-vscode-server";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -26,21 +22,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    crafts = {
-      # url = "path:/home/jon/crafts-flake";
-      url = "github:jnsgruk/crafts-flake";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-    embr = {
-      # url = "path:/home/jon/firecracker-ubuntu";
-      url = "github:jnsgruk/firecracker-ubuntu";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
   };
 
   outputs =
     { self
-    , disko
     , nixpkgs
     , nixpkgs-unstable
     , home-manager
@@ -82,46 +67,13 @@
       overlays = import ./overlays { inherit inputs; };
 
       homeConfigurations = {
-        "jon@freyja" = home-manager.lib.homeManagerConfiguration {
+        "tim@earth" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
             inherit inputs outputs stateVersion;
-            hostname = "freyja";
+            hostname = "earth";
             desktop = "hyprland";
-            username = "jon";
-          };
-          modules = [ ./home ];
-        };
-
-        "jon@hugin" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
-          extraSpecialArgs = {
-            inherit inputs outputs stateVersion;
-            hostname = "hugin";
-            desktop = null;
-            username = "jon";
-          };
-          modules = [ ./home ];
-        };
-
-        "jon@loki" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
-          extraSpecialArgs = {
-            inherit inputs outputs stateVersion;
-            hostname = "loki";
-            desktop = "hyprland";
-            username = "jon";
-          };
-          modules = [ ./home ];
-        };
-
-        "jon@thor" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
-          extraSpecialArgs = {
-            inherit inputs outputs stateVersion;
-            hostname = "thor";
-            desktop = null;
-            username = "jon";
+            username = "tim";
           };
           modules = [ ./home ];
         };
@@ -141,46 +93,13 @@
 
       # hostids are generated using `head -c4 /dev/urandom | od -A none -t x4`
       nixosConfigurations = {
-        freyja = nixpkgs-unstable.lib.nixosSystem {
+        earth = nixpkgs-unstable.lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs stateVersion;
-            hostname = "freyja";
-            hostid = "c120a672";
+            hostname = "earth";
+            hostid = "1c5023e4";
             desktop = "hyprland";
-            username = "jon";
-          };
-          modules = [ ./host ];
-        };
-
-        hugin = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs stateVersion;
-            hostname = "hugin";
-            hostid = "49509fa9";
-            desktop = null;
-            username = "jon";
-          };
-          modules = [ ./host ];
-        };
-
-        loki = nixpkgs-unstable.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs stateVersion;
-            hostname = "loki";
-            hostid = "4c53e052";
-            desktop = "hyprland";
-            username = "jon";
-          };
-          modules = [ ./host ];
-        };
-
-        thor = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs stateVersion;
-            hostname = "thor";
-            hostid = "96f2b9b5";
-            desktop = null;
-            username = "jon";
+            username = "tim";
           };
           modules = [ ./host ];
         };

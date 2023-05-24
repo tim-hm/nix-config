@@ -1,65 +1,5 @@
 {
   "nodes": {
-    "crafts": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs-unstable"
-        ]
-      },
-      "locked": {
-        "lastModified": 1683105299,
-        "narHash": "sha256-YUzVVEWdqF3JAn39y1idQdsfTpZUaonzIY9WbU+0cBA=",
-        "owner": "jnsgruk",
-        "repo": "crafts-flake",
-        "rev": "32e5e8b9403bf1be1a36caa0f925db3854c7ef7a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "jnsgruk",
-        "repo": "crafts-flake",
-        "type": "github"
-      }
-    },
-    "disko": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs-unstable"
-        ]
-      },
-      "locked": {
-        "lastModified": 1684783210,
-        "narHash": "sha256-hxRbwwBTu1G1u1EdI9nEo/n4HIsQIfNi+2BQ1nEoj/o=",
-        "owner": "nix-community",
-        "repo": "disko",
-        "rev": "f0b9f374bb42fdcd57baa7d4448ac5d4788226bd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "disko",
-        "type": "github"
-      }
-    },
-    "embr": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs-unstable"
-        ]
-      },
-      "locked": {
-        "lastModified": 1681797893,
-        "narHash": "sha256-6Pv5mPZRaALPvH/dNYbu9CUrtRk4s/3oNKCAHp53d84=",
-        "owner": "jnsgruk",
-        "repo": "firecracker-ubuntu",
-        "rev": "d0c987d365d20e0b81811044deccb7eebd278c68",
-        "type": "github"
-      },
-      "original": {
-        "owner": "jnsgruk",
-        "repo": "firecracker-ubuntu",
-        "type": "github"
-      }
-    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -212,9 +152,6 @@
     },
     "root": {
       "inputs": {
-        "crafts": "crafts",
-        "disko": "disko",
-        "embr": "embr",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "hyprland-contrib": "hyprland-contrib",

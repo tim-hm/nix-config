@@ -1,6 +1,5 @@
 { desktop, lib, pkgs, ... }: {
   imports = [
-    ./charm-tools.nix
     ./cloud.nix
     ./containers.nix
     ./go.nix

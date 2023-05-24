@@ -27,7 +27,7 @@
       outputs.overlays.modifications
 
       # You can also add overlays exported from other flakes:
-      inputs.crafts.overlay
+      # inputs.crafts.overlay
     ]
     ++ lib.optionals (desktop == "hyprland") [
       inputs.hyprland.overlays.default
