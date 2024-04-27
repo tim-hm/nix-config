@@ -21,6 +21,13 @@
         security.pam.enableSudoTouchIdAuth = true;
         system.keyboard.remapCapsLockToEscape = true;
 
+        system.defaults.finder = {
+            AppleShowAllExtensions = true;
+            ShowPathbar = true;
+            _FXShowPosixPathInTitle = false;
+        };
+
+        nixpkgs.config.allowUnfree = true;
         nixpkgs.hostPlatform = "aarch64-darwin";
 
         users.users.tim = {
