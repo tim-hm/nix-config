@@ -19,6 +19,7 @@
         system.configurationRevision = self.rev or self.dirtyRev or null;
         system.stateVersion = 4;
         security.pam.enableSudoTouchIdAuth = true;
+        system.keyboard.remapCapsLockToEscape = true;
 
         nixpkgs.hostPlatform = "aarch64-darwin";
 
