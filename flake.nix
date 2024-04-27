@@ -27,9 +27,25 @@
             home = "/Users/tim";
         };
 
-        programs.zsh.enable = true;
-        programs.fish.enable = true;
-#        programs.starship.enable = true;
+
+
+        programs.fish = {
+          enable = true;
+          interactiveShellInit = "starship init fish | source";
+          loginShellInit =
+            let
+            # This naive quoting is good enough in this case. There shouldn't be any
+            # double quotes in the input string, and it needs to be double quoted in case
+            # it contains a space (which is unlikely!)
+            dquote = str: "\"" + str + "\"";
+
+            makeBinPathList = map (path: path + "/bin");
+            in ''
+              fish_add_path --move --prepend --path ${lib.concatMapStringsSep " " dquote (makeBinPathList config.environment.profiles)}
+              set fish_user_paths $fish_user_paths
+            '';
+            vendor.completions.enable = true;
+        };
 
         environment.systemPackages = [
             pkgs.vim
