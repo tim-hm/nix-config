@@ -55,12 +55,23 @@
             vendor.completions.enable = true;
         };
 
-        environment.systemPackages = [
-            pkgs.vim
-            pkgs.neofetch
-            pkgs.zellij
-            pkgs.eza
-            pkgs.bat
+        programs.vim = {
+            enable = true;
+            enableSensible = true;
+        };
+
+        environment.systemPackages = with pkgs; [
+            bat
+            curl
+            eza
+            gh
+            git
+            helix
+            iterm2
+            neofetch
+            raycast
+            rectangle
+            zellij
         ];
 
         homebrew = {
