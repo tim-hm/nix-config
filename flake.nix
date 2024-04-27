@@ -38,7 +38,9 @@
             home = "/Users/tim";
         };
 
-
+        environment.variables = {
+            EDITOR = lib.mkForce "hx";
+        };
 
         programs.fish = {
           enable = true;
