@@ -44,7 +44,12 @@
 
         programs.fish = {
           enable = true;
-          interactiveShellInit = "starship init fish | source";
+          interactiveShellInit = ''
+            starship init fish | source
+            fzf_configure_bindings --directory=\cf --git_status=\cs --git_log=\cl
+            test -e {$HOME}/.iterm2_shell_integration.fish; and source {$HOME}/.iterm2_shell_integration.fish
+          '';
+
           loginShellInit =
             let
             # This naive quoting is good enough in this case. There shouldn't be any
@@ -58,6 +63,10 @@
               set fish_user_paths $fish_user_paths
             '';
             vendor.completions.enable = true;
+
+            shellAliases = {
+                cat = "bat";
+            };
         };
 
         programs.vim = {
