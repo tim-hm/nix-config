@@ -13,8 +13,8 @@
   let
     configuration = {pkgs, lib, config, ... }: {
 
-        services.nix-daemon.enable = true;
         nix.settings.experimental-features = "nix-command flakes";
+        services.nix-daemon.enable = true;
 
         system.configurationRevision = self.rev or self.dirtyRev or null;
         system.stateVersion = 4;
@@ -32,6 +32,8 @@
 
         nixpkgs.config.allowUnfree = true;
         nixpkgs.hostPlatform = "aarch64-darwin";
+
+        networking.hostName = "mars";
 
         users.users.tim = {
             name = "tim";
@@ -74,9 +76,7 @@
             enableSensible = true;
         };
 
-        environment.systemPackages = with pkgs; [
-            vscode
-        ];
+        environment.systemPackages = with pkgs; [];
 
         homebrew = {
             enable = true;
@@ -91,6 +91,7 @@
                 "curl"
                 "eza"
                 "fd"
+                "fisher"
                 "fzf"
                 "gh"
                 "git"
@@ -98,6 +99,7 @@
                 "kubernetes-cli"
                 "mas"
                 "starship"
+                "terminal-notifier"
                 "zellij"
             ];
             casks = [
@@ -114,11 +116,13 @@
                 "iterm2"
                 "linearmouse"
                 "plex-media-server"
+                "obsidian"
                 "raycast"
                 "rectangle-pro"
                 "shottr"
                 "signal"
                 "todoist"
+                "visual-studio-code"
             ];
             masApps = {
                 "WhatsApp" = 310633997;
