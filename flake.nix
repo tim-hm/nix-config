@@ -75,17 +75,7 @@
         };
 
         environment.systemPackages = with pkgs; [
-            bat
-            curl
-            eza
-            gh
-            git
-            helix
-            iterm2
-            neofetch
-            raycast
-            rectangle
-            zellij
+            vscode
         ];
 
         homebrew = {
@@ -96,22 +86,39 @@
 
             taps = [];
             brews = [
+                "bat"
+                "coreutils"
+                "curl"
+                "eza"
+                "fd"
+                "fzf"
+                "gh"
+                "git"
+                "helix"
                 "kubernetes-cli"
-                "starship"
                 "mas"
+                "starship"
+                "zellij"
             ];
             casks = [
                 "1password"
                 "1password-cli"
+                "bartender"
                 "bruno"
                 "easy-move-plus-resize"
                 "gitify"
+                "google-chrome"
                 "handbrake"
                 "insomnia"
+                "intellij-idea"
+                "iterm2"
                 "linearmouse"
                 "plex-media-server"
+                "raycast"
+                "rectangle-pro"
                 "shottr"
                 "signal"
+                "todoist"
             ];
             masApps = {
                 "WhatsApp" = 310633997;
