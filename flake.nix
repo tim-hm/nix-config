@@ -14,13 +14,29 @@
     darwinConfigurations.mercury = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       pkgs = import nixpkgs { system = "aarch64-darwin"; };
-      modules = [ ./mercury.nix ];
+      modules = [
+        ./mercury.nix
+        home-manager.darwinModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.tim = import ./home.nix;
+        }
+      ];
     };
 
     darwinConfigurations.mars = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       pkgs = import nixpkgs { system = "aarch64-darwin"; };
-      modules = [ ./mars.nix ];
+      modules = [
+        ./mars.nix
+        home-manager.darwinModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.tim = import ./home.nix;
+        }
+      ];
     };
   };
 }

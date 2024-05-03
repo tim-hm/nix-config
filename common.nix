@@ -25,6 +25,10 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.hostPlatform = "aarch64-darwin";
 
+  environment.variables = {
+    EDITOR = lib.mkForce "hx";
+  };
+
   users.users.tim = {
     name = "tim";
     home = "/Users/tim";
@@ -32,49 +36,6 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGTyL1sUxqVqkerCHuYgil+jq8HeGQ9E9mSFmdqnRsJz tim@mercury"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICOhD4lak0C8NC9AiroulW3MgavGGJ4fwHeI6jvcMgHZ tim@mars"
     ];
-  };
-
-  environment.variables = {
-    EDITOR = lib.mkForce "hx";
-  };
-
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
-      starship init fish | source
-      mise activate fish | source
-      fzf_configure_bindings --directory=\cf --git_status=\cs --git_log=\cl
-    '';
-
-    loginShellInit =
-      let
-      # This naive quoting is good enough in this case. There shouldn't be any
-      # double quotes in the input string, and it needs to be double quoted in case
-      # it contains a space (which is unlikely!)
-      dquote = str: "\"" + str + "\"";
-
-      makeBinPathList = map (path: path + "/bin");
-      in ''
-        fish_add_path /opt/homebrew/bin
-        fish_add_path --move --prepend --path ${lib.concatMapStringsSep " " dquote (makeBinPathList config.environment.profiles)}
-      '';
-      vendor.completions.enable = true;
-
-      shellAliases = {
-        cat = "bat";
-      };
-  };
-
-  programs.zsh = {
-    enable = true;
-    interactiveShellInit = ''
-      eval "$(/opt/homebrew/bin/mise activate zsh)"
-    '';
-  };
-
-  programs.vim = {
-    enable = true;
-    enableSensible = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -112,6 +73,7 @@
       "awscli"
       "websocat"
       "tmate"
+      "vim"
     ];
     casks = [
       "1password"

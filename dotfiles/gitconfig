@@ -1,0 +1,26 @@
+[user]
+    name = Tim Holmes-Mitra
+    email = tim.holmesmitra@nillion.com
+    signingKey = /Users/tim/.ssh/id_ed25519.pub
+[alias]
+    lg = log --oneline --graph --decorate -n 20
+    s = status -s
+[color]
+    ui = 1
+[pull]
+    rebase = true
+[core]
+    autocrlf = input
+    editor = vim -c "set colorcolumn=50,72"
+[rebase]
+    autosquash = true
+    interactive = true
+[init]
+    defaultBranch = main
+[push]
+    default = current
+    autoSetupRemote = true
+[commit]
+    gpgsign = true
+[gpg]
+    format = ssh

@@ -1,0 +1,75 @@
+" Set default indentation
+set tabstop=4       " Number of visual spaces per TAB
+set softtabstop=4   " Number of spaces in tab when editing
+set shiftwidth=4    " Number of spaces to use for autoindent
+set expandtab       " Use spaces instead of tabs
+
+colorscheme catppuccin_mocha
+syntax enable
+set cursorline
+
+" Searching
+set hlsearch
+set incsearch
+set ignorecase
+
+" Enable mouse mode
+set mouse=a
+
+" Set status bar
+set laststatus=2
+
+" Automatically indent based on the previous line
+set autoindent
+
+" Smart case sensitivity
+set smartcase
+
+" Enable line wrapping
+set wrap
+
+" Show command in the bottom bar as you type
+set showcmd
+
+" Enable file backup
+set backup
+set backupdir=~/.vim/backups
+
+" Better command-line completion
+set wildmenu
+
+" Save undo history
+set undofile
+set undodir=~/.vim/undo
+
+" Allow buffer switching without saving
+set hidden
+
+" Reduce update time
+set updatetime=300
+
+" Scroll offset when cursor moves offscreen
+set scrolloff=8
+
+" Clipboard integration
+set clipboard=unnamedplus
+
+" Open new split panes to right and below
+set splitbelow
+set splitright
+
+" Encoding settings
+set encoding=utf-8
+set fileencoding=utf-8
+
+" Don't show the welcome screen
+set shortmess+=I
+
+" Visual autocomplete for command menu
+set wildmode=list:longest
+
+" Prevent system beep on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
