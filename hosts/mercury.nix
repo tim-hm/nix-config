@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ self, pkgs, config, ... }:
 {
   imports = [
     ./common.nix
@@ -16,6 +16,7 @@
         "asana"
         "loom"
         "notion"
+        "slack"
         "zoom"
     ];
   };

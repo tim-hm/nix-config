@@ -1,5 +1,5 @@
 {
-  description = "tim's nix configuration";
+  description = "Tim's nix configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -10,33 +10,28 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, ... }: {
-    darwinConfigurations.mercury = nix-darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      pkgs = import nixpkgs { system = "aarch64-darwin"; };
-      modules = [
-        ./mercury.nix
-        home-manager.darwinModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.tim = import ./home.nix;
-        }
-      ];
+  outputs = { self, nixpkgs, nix-darwin, home-manager, ... }:
+    let
+      darwinSystem = { system, hostname }: nix-darwin.lib.darwinSystem  {
+        inherit system;
+        pkgs = import nixpkgs { inherit system; };
+        specialArgs = { inherit self; };
+        modules = [
+          ./hosts/${hostname}.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.tim = import ./hosts/home.nix;
+          }
+        ];
+      };
+    in {
+      darwinConfigurations.mercury = darwinSystem { hostname = "mercury"; system = "aarch64-darwin"; };
+      darwinConfigurations.mars = darwinSystem  { hostname = "mars"; system = "aarch64-darwin"; };
     };
-
-    darwinConfigurations.mars = nix-darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      pkgs = import nixpkgs { system = "aarch64-darwin"; };
-      modules = [
-        ./mars.nix
-        home-manager.darwinModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.tim = import ./home.nix;
-        }
-      ];
-    };
-  };
+#    nixosConfigurations."my-x86-machine" = nixpkgs.lib.nixosSystem {
+#        system = "x86_64-linux";
+#        modules = [ ./configuration.nix ];
+#    };
 }

@@ -1,10 +1,12 @@
-{ pkgs, lib, config, ... }:
+{ self, pkgs, lib, ... }:
 {
+  system.stateVersion = 4;
+  system.configurationRevision = self.rev or self.dirtyRev or null;
+
   nix.settings.experimental-features = "nix-command flakes";
   services.nix-daemon.enable = true;
   security.pam.enableSudoTouchIdAuth = true;
-#  system.configurationRevision = self.rev or self.dirtyRev or null;
-  system.stateVersion = 4;
+
   system.keyboard = {
       enableKeyMapping = true;
       remapCapsLockToEscape = true;
@@ -32,10 +34,6 @@
   users.users.tim = {
     name = "tim";
     home = "/Users/tim";
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGTyL1sUxqVqkerCHuYgil+jq8HeGQ9E9mSFmdqnRsJz tim@mercury"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICOhD4lak0C8NC9AiroulW3MgavGGJ4fwHeI6jvcMgHZ tim@mars"
-    ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -50,6 +48,7 @@
 
     taps = [];
     brews = [
+      "awscli"
       "bat"
       "coreutils"
       "curl"
@@ -64,26 +63,25 @@
       "kubernetes-cli"
       "libusb"
       "mas"
-      "starship"
-      "terminal-notifier"
-      "zellij"
       "mise"
       "pidof"
-      "tree"
-      "awscli"
-      "websocat"
+      "starship"
+      "terminal-notifier"
       "tmate"
+      "tree"
       "vim"
+      "websocat"
+      "zellij"
     ];
     casks = [
       "1password"
       "1password-cli"
+      "arc"
       "bartender"
       "bruno"
       "discord"
       "docker"
       "easy-move-plus-resize"
-      "fantastical"
       "gitify"
       "google-chrome"
       "handbrake"
@@ -97,7 +95,6 @@
       "raycast"
       "rectangle-pro"
       "shottr"
-      "slack"
       "signal"
       "todoist"
       "visual-studio-code"

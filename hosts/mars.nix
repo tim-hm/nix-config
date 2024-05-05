@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ self, pkgs, config, ... }:
 {
   imports = [
     ./common.nix
@@ -13,6 +13,8 @@
 
   homebrew = {
     brews = [];
-    casks = [];
+    casks = [
+      "transmission"
+    ];
   };
 }
