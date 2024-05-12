@@ -31,16 +31,8 @@ set wrap
 " Show command in the bottom bar as you type
 set showcmd
 
-" Enable file backup
-set backup
-set backupdir=~/.vim/backups
-
 " Better command-line completion
 set wildmenu
-
-" Save undo history
-set undofile
-set undodir=~/.vim/undo
 
 " Allow buffer switching without saving
 set hidden
