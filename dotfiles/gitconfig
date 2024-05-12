@@ -11,7 +11,6 @@
     rebase = true
 [core]
     autocrlf = input
-    editor = vim -c "set colorcolumn=50,72"
 [rebase]
     autosquash = true
     interactive = true

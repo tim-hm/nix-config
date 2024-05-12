@@ -65,3 +65,9 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
+
+filetype on
+filetype plugin on
+
+" Enable rulers for git
+autocmd FileType gitcommit set colorcolumn=50,72
