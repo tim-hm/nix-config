@@ -28,7 +28,7 @@
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   environment.variables = {
-    EDITOR = lib.mkForce "hx";
+    EDITOR = lib.mkForce "vim";
   };
 
   users.users.tim = {
@@ -42,7 +42,7 @@
 
   homebrew = {
     enable = true;
-#    onActivation.cleanup = "uninstall";
+    onActivation.cleanup = "uninstall";
     onActivation.autoUpdate = true;
     onActivation.upgrade = true;
 
@@ -74,24 +74,29 @@
       "zellij"
     ];
     casks = [
-      "1password"
       "1password-cli"
+      "1password"
       "arc"
       "bartender"
       "bruno"
+      "chromedriver"
+      "cmake"
       "discord"
       "docker"
       "easy-move-plus-resize"
+      "element"
       "gitify"
       "google-chrome"
       "handbrake"
       "insomnia"
       "intellij-idea"
       "iterm2"
+      "jetbrains-toolbox"
       "linearmouse"
-      "plex-media-server"
-      "obsidian"
+      "mold"
       "obs"
+      "obsidian"
+      "plex-media-server"
       "raycast"
       "rectangle-pro"
       "shottr"
@@ -99,7 +104,9 @@
       "todoist"
       "visual-studio-code"
       "vlc"
-      "jetbrains-toolbox"
+      "watch"
+      "socat"
+      "jq"
     ];
     masApps = {
       "Amphetamine" = 937984704;
