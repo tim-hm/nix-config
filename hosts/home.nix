@@ -10,6 +10,7 @@
       ".zshrc".source = ../dotfiles/zshrc;
       ".vimrc".source = ../dotfiles/vimrc;
       ".ssh/authorized_keys".source = ../dotfiles/ssh_authorized_keys;
+      ".ssh/config".source = ../dotfiles/ssh_config;
     };
   };
 

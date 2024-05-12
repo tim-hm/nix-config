@@ -1,0 +1,14 @@
+Host earth
+  HostName earth
+  User tim
+
+Host earth.local
+  HostName earth.local
+  User tim
+
+Host nillion.local
+  HostName 10.185.164.69
+  User tim
+  ProxyJump earth.local
+  ForwardAgent yes
+  IdentityFile ~/.ssh/id_ed25519
