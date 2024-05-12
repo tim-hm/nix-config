@@ -3,7 +3,7 @@
     email = tim.holmesmitra@nillion.com
     signingKey = /Users/tim/.ssh/id_ed25519.pub
 [alias]
-    lg = log --oneline --graph --decorate -n 20
+    lg = log --oneline --graph --decorate -n 20 --no-merges
     s = status -s
 [color]
     ui = 1
